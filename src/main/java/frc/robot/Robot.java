@@ -7,10 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.Drivebase;
 
 public class Robot extends TimedRobot {
 
   public static OI oi;
+  public static Drivebase drivebase;
 
   Command m_autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -18,6 +20,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
+    drivebase = new Drivebase();
 
     SmartDashboard.putData("Auto mode", chooser);
   }
