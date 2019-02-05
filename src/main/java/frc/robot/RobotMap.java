@@ -10,8 +10,8 @@ public enum RobotMap {
 
   //Control Mappings
 
-  LEFT_JOYSTICK(0), //driver station
-  RIGHT_JOYSTICK(1);
+  LEFT_JOYSTICK(1), //driver station
+  RIGHT_JOYSTICK(2);
   
   public final int value;
 
