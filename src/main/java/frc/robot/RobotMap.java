@@ -3,6 +3,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedController;
 
 public enum RobotMap {
   //PWM Motor Mappings
@@ -15,10 +16,15 @@ public enum RobotMap {
   //Control Mappings
 
   LEFT_JOYSTICK(0), //driver station
-  RIGHT_JOYSTICK(1);
+  RIGHT_JOYSTICK(1),
+
+  //Arm
+
+  ARM(4);
   
   public final int value;
   public static RobotDrive driveTrainRobotDrive;
+  public static SpeedController armPWM2;
 
   RobotMap(int value){
     this.value = value;
