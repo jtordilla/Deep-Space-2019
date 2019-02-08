@@ -8,11 +8,13 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.NavSensor;
 
 public class Robot extends TimedRobot {
 
   public static OI oi;
   public static Drivebase drivebase;
+  public static final NavSensor navsensor = new NavSensor();
 
   Command m_autonomousCommand;
   SendableChooser<Command> chooser = new SendableChooser<>();

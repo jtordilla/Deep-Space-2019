@@ -2,11 +2,15 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.RobotDrive;
+
 public enum RobotMap {
   //PWM Motor Mappings
 
-  LEFT_MOTOR(0), //slot on PWM
-  RIGHT_MOTOR(1),
+  FRONT_LEFT_MOTOR(0), //slot on PWM
+  FRONT_RIGHT_MOTOR(1),
+  BACK_LEFT_MOTOR(2),
+  BACK_RIGHT_MOTOR(3),
 
   //Control Mappings
 
@@ -14,6 +18,7 @@ public enum RobotMap {
   RIGHT_JOYSTICK(1);
   
   public final int value;
+  public static RobotDrive driveTrainRobotDrive;
 
   RobotMap(int value){
     this.value = value;

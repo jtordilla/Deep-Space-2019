@@ -36,6 +36,12 @@ public class OI {
     
   }
 
+  public double getRightJoyZ(){
+    double raw = RIGHT_JOY.getZ();
+    return Math.abs(raw) < JOY_DEADZONE ? 0.0 : raw; //if raw is less than deadzone, return zero
+    
+  }
+
   public OI(){
 
   }
