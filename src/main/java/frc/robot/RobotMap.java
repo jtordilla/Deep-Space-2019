@@ -13,14 +13,17 @@ public enum RobotMap {
   BACK_LEFT_MOTOR(2),
   BACK_RIGHT_MOTOR(3),
 
+  //Climber
+
+
+  CLIMBER(4),
+
   //Control Mappings
 
   LEFT_JOYSTICK(0), //driver station
-  RIGHT_JOYSTICK(1),
+  RIGHT_JOYSTICK(1);
 
   //Arm
-
-  CLIMBER(4);
   
   public final int value;
   public static RobotDrive driveTrainRobotDrive;
