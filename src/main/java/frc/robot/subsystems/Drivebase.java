@@ -15,7 +15,7 @@ public class Drivebase extends Subsystem{
     private Spark BackLeftMotor;
     private Spark BackRightMotor;
     
-    private Spark Arm;
+    private Spark Climber;
 
     public MecanumDrive mecanumDrive;
     RobotDrive robotDrive = RobotMap.driveTrainRobotDrive;
@@ -26,7 +26,7 @@ public class Drivebase extends Subsystem{
         BackLeftMotor = new Spark(RobotMap.BACK_LEFT_MOTOR.value);
         BackRightMotor = new Spark(RobotMap.BACK_RIGHT_MOTOR.value);
 
-        Arm = new Spark(RobotMap.ARM.value);
+        Climber = new Spark(RobotMap.CLIMBER.value);
 
     }
 
@@ -35,7 +35,7 @@ public class Drivebase extends Subsystem{
         FrontRightMotor = new Spark(RobotMap.FRONT_RIGHT_MOTOR.value);
         BackLeftMotor = new Spark(RobotMap.BACK_LEFT_MOTOR.value); 
         BackRightMotor = new Spark(RobotMap.BACK_RIGHT_MOTOR.value);
-        Arm = new Spark(RobotMap.ARM.value);
+        Climber = new Spark(RobotMap.CLIMBER.value);
 
         mecanumDrive = new MecanumDrive(FrontLeftMotor, BackLeftMotor, FrontRightMotor, BackRightMotor);
     }

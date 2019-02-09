@@ -20,11 +20,10 @@ public enum RobotMap {
 
   //Arm
 
-  ARM(4);
+  CLIMBER(4);
   
   public final int value;
   public static RobotDrive driveTrainRobotDrive;
-  public static SpeedController armPWM2;
 
   RobotMap(int value){
     this.value = value;
