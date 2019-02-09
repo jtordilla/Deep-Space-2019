@@ -4,37 +4,44 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.RobotMap;
 import frc.robot.commands.TankDrive;
+
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.*;
 
 public class Drivebase extends Subsystem{
 
-    private Spark FrontLeftMotor;
-    private Spark FrontRightMotor;
-    private Spark BackLeftMotor;
-    private Spark BackRightMotor;
+    private CANSparkMax FrontLeftMotor;
+    private CANSparkMax FrontRightMotor;
+    private CANSparkMax BackLeftMotor;
+    private CANSparkMax BackRightMotor;
     
     private Spark Climber;
+    //add elevator
+    //add intake flipper
+    //add scissor lift
 
     public MecanumDrive mecanumDrive;
     RobotDrive robotDrive = RobotMap.driveTrainRobotDrive;
 
     public Drivebase(){
-        FrontLeftMotor = new Spark(RobotMap.FRONT_LEFT_MOTOR.value); //found in RobotMap enum
-        FrontRightMotor = new Spark(RobotMap.FRONT_RIGHT_MOTOR.value);
-        BackLeftMotor = new Spark(RobotMap.BACK_LEFT_MOTOR.value);
-        BackRightMotor = new Spark(RobotMap.BACK_RIGHT_MOTOR.value);
+        FrontLeftMotor = new CANSparkMax(RobotMap.FRONT_LEFT_MOTOR.value, MotorType.kBrushless ); //found in RobotMap enum
+        FrontRightMotor = new CANSparkMax(RobotMap.FRONT_RIGHT_MOTOR.value, MotorType.kBrushless);
+        BackLeftMotor = new CANSparkMax(RobotMap.BACK_LEFT_MOTOR.value, MotorType.kBrushless);
+        BackRightMotor = new CANSparkMax(RobotMap.BACK_RIGHT_MOTOR.value, MotorType.kBrushless);
 
         Climber = new Spark(RobotMap.CLIMBER.value);
-
     }
 
     public void init(){
-        FrontLeftMotor = new Spark(RobotMap.FRONT_LEFT_MOTOR.value); //found in RobotMap enum
-        FrontRightMotor = new Spark(RobotMap.FRONT_RIGHT_MOTOR.value);
-        BackLeftMotor = new Spark(RobotMap.BACK_LEFT_MOTOR.value); 
-        BackRightMotor = new Spark(RobotMap.BACK_RIGHT_MOTOR.value);
+        FrontLeftMotor = new CANSparkMax(RobotMap.FRONT_LEFT_MOTOR.value, MotorType.kBrushless ); //found in RobotMap enum
+        FrontRightMotor = new CANSparkMax(RobotMap.FRONT_RIGHT_MOTOR.value, MotorType.kBrushless);
+        BackLeftMotor = new CANSparkMax(RobotMap.BACK_LEFT_MOTOR.value, MotorType.kBrushless);
+        BackRightMotor = new CANSparkMax(RobotMap.BACK_RIGHT_MOTOR.value, MotorType.kBrushless);
+        
         Climber = new Spark(RobotMap.CLIMBER.value);
 
         mecanumDrive = new MecanumDrive(FrontLeftMotor, BackLeftMotor, FrontRightMotor, BackRightMotor);
