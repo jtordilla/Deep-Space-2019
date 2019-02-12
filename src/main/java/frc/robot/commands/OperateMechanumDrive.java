@@ -12,13 +12,17 @@ public class OperateMechanumDrive extends CommandBase {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    drivebase.reset_encoders();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-
-    Robot.drivebase.setMecanumDrive(Robot.oi.getLeftJoyY(), Robot.oi.getLeftJoyX(), Robot.oi.getRightJoyZ(), navsensor.getGyroAngle());
+    double x = oi.getRightJoyX();
+    double y = -(oi.getLeftJoyY() + oi.getRightJoyY()) /2;
+    double rot = (oi.getLeftJoyY() - oi.getRightJoyY()) /2;
+    drivebase.mecanumCartesian(x, y, rot);
+    drivebase.updateEncoderData();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -30,7 +34,7 @@ public class OperateMechanumDrive extends CommandBase {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    drivebase.setMecanumDrive(0, 0, 0, 0);
+    drivebase.mecanumCartesian(0, 0, 0, 0);
     navsensor.resetAngle();
   }
 
@@ -38,6 +42,6 @@ public class OperateMechanumDrive extends CommandBase {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    drivebase.setMecanumDrive(0, 0, 0, 0);
+    super.interrupted();
   }
 }
