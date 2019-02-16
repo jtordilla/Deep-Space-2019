@@ -1,20 +1,19 @@
 package frc.robot.subsystems;
 
-
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveElevator;
-import frc.robot.commands.DriveIntake;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class Elevator extends Subsystem {
 
-    private Spark elevator;
+    private CANSparkMax elevator;
 
     public Elevator() {
     
-        elevator = new Spark(RobotMap.ELEVATOR);
+        elevator = new CANSparkMax(RobotMap.ELEVATOR, MotorType.kBrushless);
     }
     
     public void runMotors(double speed) {

@@ -1,19 +1,21 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveIntake;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 
 public class Intake extends Subsystem {
 
-    private Spark intake;
+    private CANSparkMax intake;
 
     public Intake() {
     
-        intake = new Spark(RobotMap.INTAKE);
+        intake = new CANSparkMax(RobotMap.INTAKE, MotorType.kBrushless);
     }
     
     public void runMotors(double speed) {
